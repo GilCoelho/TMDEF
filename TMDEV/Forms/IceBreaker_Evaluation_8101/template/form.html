@@ -1,0 +1,42 @@
+{% extends "form_layout.html" %}
+
+{% block form_title %}Ice Breaker{% endblock %}
+
+{% block form_message %}Evaluation form for Ice Breaker Speech{% endblock %}
+
+{% block form_purpose %}
+The purpose of this project is for the member to introduce themselves to the club and learn the basic structure of a
+public speech.
+{% endblock %}
+
+{% block form_notes %}
+This member is completing their first speech in Toastmasters. The goal of the evaluation is to give the member
+an effective evaluation of their speech and delivery style. Because the “Ice Breaker” is the first project a member
+completes, you may choose to use only the notes section and not the numerical score.
+If you know you will be the evaluator ahead of the meeting, communicate with the speaker to learn about them and
+their goals for their first speech. Be sure to set aside enough time in your schedule to meet with the speaker after
+their speech to review the evaluation and answer any questions they may have.
+{% endblock %}
+
+{% block form_questions %}
+    <label for="first_answer">You excelled at: </label>
+    <br>
+    <input id="first_answer" type="text" name="first_answer" value="">
+    <br>
+
+    <label for="second_answer">You may want to work on: </label>
+    <br>
+    <input id="second_answer" type="text" name="second_answer" value="">
+    <br>
+
+    <label for="third_answer">To challenge yourself: </label>
+    <br>
+
+    <input id="third_answer" type="text" name="third_answer" value="">
+{% endblock %}
+
+{% block form_options %}
+{% endblock %}
+
+{% block form_criteria %}
+{% endblock %}

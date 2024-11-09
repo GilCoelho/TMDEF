@@ -1,3 +1,12 @@
+tmdev_venv
+*db.sqlite3
+*__pycache__
+
+# Ignore pdf from Form dir
+Forms/*/*.pdf
+
+# Template ignore
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
