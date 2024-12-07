@@ -8,14 +8,16 @@ from django.conf import settings
 from Forms.IceBreaker_Evaluation_8101.models import EvaluationForm
 from Forms.IceBreaker_Evaluation_8101.forms import FeedBackForm
 
+
 # Create your views here.
 @csrf_protect
 @requires_csrf_token
 def evaluation_form(request):
-  template = loader.get_template('form.html')
-  context = {}
+    template = loader.get_template("icebreaker_form.html")
+    context = {}
 
-  return HttpResponse(template.render(context, request))
+    return HttpResponse(template.render(context, request))
+
 
 @csrf_protect
 @requires_csrf_token
@@ -30,9 +32,11 @@ def feedback(request):
         if form.is_valid():
             # process the data in form.cleaned_data as required
             # ...
-            EvaluationForm(first_answer=form.cleaned_data["first_answer"],
-                           second_answer=form.cleaned_data["second_answer"],
-                           third_answer=form.cleaned_data["third_answer"]).save()
+            EvaluationForm(
+                first_answer=form.cleaned_data["first_answer"],
+                second_answer=form.cleaned_data["second_answer"],
+                third_answer=form.cleaned_data["third_answer"],
+            ).save()
 
             # redirect to a new URL:
             return HttpResponseRedirect("/thanks/")
@@ -41,4 +45,4 @@ def feedback(request):
     else:
         form = FeedBackForm()
 
-    return render(request, 'thanks.html', {"form": form})
+    return render(request, "thanks.html", {"form": form})
