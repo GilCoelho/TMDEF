@@ -1,8 +1,6 @@
-{% extends "form_layout.html" %}
+{% extends "../template/evaluation_form_layout.html" %}
 
 {% block form_title %}Ice Breaker{% endblock %}
-
-{% block form_message %}Evaluation form for Ice Breaker Speech{% endblock %}
 
 {% block form_purpose %}
 The purpose of this project is for the member to introduce themselves to the club and learn the basic structure of a
@@ -31,8 +29,8 @@ their speech to review the evaluation and answer any questions they may have.
 
     <label for="third_answer">To challenge yourself: </label>
     <br>
-
     <input id="third_answer" type="text" name="third_answer" value="">
+    <br>
 {% endblock %}
 
 {% block form_options %}

@@ -22,5 +22,6 @@ urlpatterns = [
 
     path("", include(("Forms.Form_Selector.urls", "selector"), namespace="index")),
     path("selector/", include(("Forms.Form_Selector.urls", "selector"), namespace="selector")),
-    path("icebreaker/", include(("Forms.IceBreaker_Evaluation_8101.urls", "icebreaker"), namespace="icebreaker")),
+
+    path("evaluation/", include(("Forms.Evaluation_Forms.urls", "evaluation"), namespace="evaluation")),
 ]

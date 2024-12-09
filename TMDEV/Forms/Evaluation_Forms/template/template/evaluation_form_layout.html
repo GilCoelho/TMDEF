@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <title>TMDEV</title>
+    </head>
+
+    <body>
+        <h1>{% block form_title %}{% endblock %}</h1>
+
+        {% block speech_info %}
+        <p>Member Name: {{ speaker }}</p>
+        <h2>Speech Title: {{ speech_name }}</h2>
+        {% endblock %}
+
+        <h2>Purpose Statement</h2>
+        <p>{% block form_purpose %}
+        {% endblock %}</p>
+
+        <h2>Notes for the Evaluator</h2>
+        <p>{% block form_notes %}
+        {% endblock %}</p>
+
+        <h2>General Comments</h2>
+        <form action="/evaluation/feedback/" method="post">
+            {% csrf_token %}
+
+            <input type="hidden" id="speech_id" name="speech_id" value="{{ speech_id }}">
+
+            {% block form_questions %}
+            <label for="first_answer">You excelled at: </label>
+            <br>
+            <input id="first_answer" type="text" name="first_answer" value="">
+            <br>
+
+            <label for="second_answer">You may want to work on: </label>
+            <br>
+            <input id="second_answer" type="text" name="second_answer" value="">
+            <br>
+
+            <label for="third_answer">To challenge yourself: </label>
+            <br>
+            <input id="third_answer" type="text" name="third_answer" value="">
+            <br>
+            {% endblock %}
+
+            {% block criteria_resp_1 %}
+            <input type="radio" id="criteria_resp_1_0" name="criteria_resp_1" value=0 hidden="true" checked>
+            <input id="criteria_resp_1_comment" type="text" name="criteria_resp_1_comment" value="No Comment" hidden="true">
+            {% endblock %}
+
+            {% block criteria_resp_2 %}
+            <input type="radio" id="criteria_resp_2_0" name="criteria_resp_2" value=0 hidden="true" checked>
+            <input id="criteria_resp_2_comment" type="text" name="criteria_resp_2_comment" value="No Comment" hidden="true">
+            {% endblock %}
+
+            {% block criteria_resp_3 %}
+            <input type="radio" id="criteria_resp_3_0" name="criteria_resp_3" value=0 hidden="true" checked>
+            <input id="criteria_resp_3_comment" type="text" name="criteria_resp_3_comment" value="No Comment" hidden="true">
+            {% endblock %}
+
+            {% block criteria_resp_4 %}
+            <input type="radio" id="criteria_resp_4_0" name="criteria_resp_4" value=0 hidden="true" checked>
+            <input id="criteria_resp_4_comment" type="text" name="criteria_resp_4_comment" value="No Comment" hidden="true">
+            {% endblock %}
+
+            {% block criteria_resp_5 %}
+            <input type="radio" id="criteria_resp_5_0" name="criteria_resp_5" value=0 hidden="true" checked>
+            <input id="criteria_resp_5_comment" type="text" name="criteria_resp_5_comment" value="No Comment" hidden="true">
+            {% endblock %}
+
+            {% block criteria_resp_6 %}
+            <input type="radio" id="criteria_resp_6_0" name="criteria_resp_6" value=0 hidden="true" checked>
+            <input id="criteria_resp_6_comment" type="text" name="criteria_resp_6_comment" value="No Comment" hidden="true">
+            {% endblock %}
+
+            {% block criteria_resp_7 %}
+            <input type="radio" id="criteria_resp_7_0" name="criteria_resp_7" value=0 hidden="true" checked>
+            <input id="criteria_resp_7_comment" type="text" name="criteria_resp_7_comment" value="No Comment" hidden="true">
+            {% endblock %}
+
+            {% block criteria_resp_8 %}
+            <input type="radio" id="criteria_resp_8_0" name="criteria_resp_8" value=0 hidden="true" checked>
+            <input id="criteria_resp_8_comment" type="text" name="criteria_resp_8_comment" value="No Comment" hidden="true">
+            {% endblock %}
+
+            {% block criteria_resp_9 %}
+            <input type="radio" id="criteria_resp_9_0" name="criteria_resp_9" value=0 hidden="true" checked>
+            <input id="criteria_resp_9_comment" type="text" name="criteria_resp_9_comment" value="No Comment" hidden="true">
+            {% endblock %}
+
+            {% block criteria_resp_10 %}
+            <input type="radio" id="criteria_resp_10_0" name="criteria_resp_10" value=0 hidden="true" checked>
+            <input id="criteria_resp_10_comment" type="text" name="criteria_resp_10_comment" value="No Comment" hidden="true">
+            {% endblock %}
+
+            {% block criteria_resp_11 %}
+            <input type="radio" id="criteria_resp_11_0" name="criteria_resp_11" value=0 hidden="true" checked>
+            <input id="criteria_resp_11_comment" type="text" name="criteria_resp_11_comment" value="No Comment" hidden="true">
+            {% endblock %}
+
+            {% block criteria_resp_12 %}
+            <input type="radio" id="criteria_resp_12_0" name="criteria_resp_12" value=0 hidden="true" checked>
+            <input id="criteria_resp_12_comment" type="text" name="criteria_resp_12_comment" value="No Comment" hidden="true">
+            {% endblock %}
+
+            <br>
+            <input type="submit" value="OK">
+        </form>
+
+        <h2>Criteria</h2>
+        <p>{% block form_criteria %}
+        {% endblock %}</p>
+    </body>
+</html>

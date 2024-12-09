@@ -12,7 +12,7 @@ from Forms.Form_Selector.forms import AddSpeechForm
 # Create your views here.
 @csrf_protect
 @requires_csrf_token
-def form_selector(request):
+def form_selector(request, form_data=None):
     speech_list = SpeechToEval.objects.all().values()
     fd_forms_list = FeedBackFormsList.objects.all().values()
 
@@ -20,6 +20,7 @@ def form_selector(request):
     context = {
         "speech_list": speech_list,
         "speech_feed_back_form": fd_forms_list,
+        "form_data": form_data,
     }
 
     return HttpResponse(template.render(context, request))
@@ -37,7 +38,6 @@ def add_speech(request):
         if form.is_valid():
             # process the data in form.cleaned_data as required
             # ...
-            print(form.cleaned_data)
             SpeechToEval(
                 speaker=form.cleaned_data["speaker"],
                 speaker_email=form.cleaned_data["speaker_email"],
@@ -53,4 +53,5 @@ def add_speech(request):
     else:
         form = AddSpeechForm()
 
-    return render(request, "thanks.html", {"form": form})
+    # Return back to Selector form with form data
+    return form_selector(request, form)

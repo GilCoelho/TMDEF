@@ -8,12 +8,12 @@
         <h1>Form Selector</h1>
 
         <h2>Speech for Today</h2>
-        {% for s in speech_list %}
-        <a href="{{ s.feedback_form }}/form">
+        {% for speech in speech_list %}
+        <a href="evaluation/form?form={{ speech.feedback_form }}&speech={{ speech.id }}">
             <div class="box">
-                {{ s.speaker }}
+                {{ speech.speaker }}
                 <br>
-                <span>{{ s.speech_name }} : {{ s.pathway_challenge }}</span>
+                <span>{{ speech.speech_name }} : {{ speech.pathway_challenge }}</span>
             </div>
         </a>
         {% endfor %}
@@ -22,16 +22,16 @@
         <form action="/selector/add_speech/" method="post">
             {% csrf_token %}
             <label for="speaker">Speaker: </label>
-            <input id="speaker" type="text" name="speaker" value="">
+            <input id="speaker" type="text" name="speaker" value="{{ form_data.speaker.value }}">
 
             <label for="speaker_email">E-Mail: </label>
-            <input id="speaker_email" type="text" name="speaker_email" value="">
+            <input id="speaker_email" type="text" name="speaker_email" value="{{ form_data.speaker_email.value }}">
 
             <label for="speech_name">Speech Name: </label>
-            <input id="speech_name" type="text" name="speech_name" value="">
+            <input id="speech_name" type="text" name="speech_name" value="{{ form_data.speech_name.value }}">
 
             <label for="pathway_challenge">Path-Way Challenge: </label>
-            <input id="pathway_challenge" type="text" name="pathway_challenge" value="">
+            <input id="pathway_challenge" type="text" name="pathway_challenge" value="{{ form_data.pathway_challenge.value }}">
 
             <label>Feed-Back Form:
                 <select id="feedback_form" name="feedback_form">

@@ -39,10 +39,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "Forms.Master_Template",
     "Forms.Form_Selector",
-    "Forms.Generic_Evaluation_8053",
-    "Forms.IceBreaker_Evaluation_8101",
+    "Forms.Evaluation_Forms",
 ]
 
 MIDDLEWARE = [
@@ -61,10 +59,8 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
-            BASE_DIR / "Forms/Master_Template/template",
             BASE_DIR / "Forms/Form_Selector/template",
-            BASE_DIR / "Forms/Generic_Evaluation_8053/template",
-            BASE_DIR / "Forms/IceBreaker_Evaluation_8101/template",
+            BASE_DIR / "Forms/Evaluation_Forms/template",
         ],
         "APP_DIRS": True,
         "OPTIONS": {

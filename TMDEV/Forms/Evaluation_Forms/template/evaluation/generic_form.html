@@ -1,0 +1,156 @@
+{% extends "../template/evaluation_form_layout.html" %}
+
+{% block form_title %}Generic Evaluation{% endblock %}
+
+{% block form_purpose %}
+The purpose of this project is for the member to introduce themselves to the club and learn the basic structure of a
+public speech.
+{% endblock %}
+
+{% block form_notes %}
+This member is completing their first speech in Toastmasters. The goal of the evaluation is to give the member
+an effective evaluation of their speech and delivery style. Because the “Ice Breaker” is the first project a member
+completes, you may choose to use only the notes section and not the numerical score.
+If you know you will be the evaluator ahead of the meeting, communicate with the speaker to learn about them and
+their goals for their first speech. Be sure to set aside enough time in your schedule to meet with the speaker after
+their speech to review the evaluation and answer any questions they may have.
+{% endblock %}
+
+{% block criteria_resp_1 %}
+<label for="criteria_resp_1">Clarity: Spoken language is clear and is easily understood</label>
+<input type="radio" id="criteria_resp_1_0" name="criteria_resp_1" value=0 hidden="true" checked>
+<input type="radio" id="criteria_resp_1_1" name="criteria_resp_1" value=1>
+<label for="criteria_resp_1">1</label>
+<input type="radio" id="criteria_resp_1_2" name="criteria_resp_1" value=2>
+<label for="criteria_resp_1">2</label>
+<input type="radio" id="criteria_resp_1_3" name="criteria_resp_1" value=3>
+<label for="criteria_resp_1">3</label>
+<input type="radio" id="criteria_resp_1_4" name="criteria_resp_1" value=4>
+<label for="criteria_resp_1">4</label>
+<input type="radio" id="criteria_resp_1_5" name="criteria_resp_1" value=5>
+<label for="criteria_resp_1">5</label>
+<input id="criteria_resp_1_comment" type="text" name="criteria_resp_1_comment" value="No Comment">
+<br>
+{% endblock %}
+
+{% block criteria_resp_2 %}
+<label for="criteria_resp_2">Vocal Variety: Uses tone, speed, and volume as tools</label>
+<input type="radio" id="criteria_resp_2_0" name="criteria_resp_2" value=0 hidden="true" checked>
+<input type="radio" id="criteria_resp_2_1" name="criteria_resp_2" value=1>
+<label for="criteria_resp_2">1</label>
+<input type="radio" id="criteria_resp_2_2" name="criteria_resp_2" value=2>
+<label for="criteria_resp_2">2</label>
+<input type="radio" id="criteria_resp_2_3" name="criteria_resp_2" value=3>
+<label for="criteria_resp_2">3</label>
+<input type="radio" id="criteria_resp_2_4" name="criteria_resp_2" value=4>
+<label for="criteria_resp_2">4</label>
+<input type="radio" id="criteria_resp_2_5" name="criteria_resp_2" value=5>
+<label for="criteria_resp_2">5</label>
+<input id="criteria_resp_2_comment" type="text" name="criteria_resp_2_comment" value="No Comment">
+<br>
+{% endblock %}
+
+{% block criteria_resp_3 %}
+<label for="criteria_resp_3">Eye Contact: Effectively uses eye contact to engage audience</label>
+<input type="radio" id="criteria_resp_3_0" name="criteria_resp_3" value=0 hidden="true" checked>
+<input type="radio" id="criteria_resp_3_1" name="criteria_resp_3" value=1>
+<label for="criteria_resp_3">1</label>
+<input type="radio" id="criteria_resp_3_2" name="criteria_resp_3" value=2>
+<label for="criteria_resp_3">2</label>
+<input type="radio" id="criteria_resp_3_3" name="criteria_resp_3" value=3>
+<label for="criteria_resp_3">3</label>
+<input type="radio" id="criteria_resp_3_4" name="criteria_resp_3" value=4>
+<label for="criteria_resp_3">4</label>
+<input type="radio" id="criteria_resp_3_5" name="criteria_resp_3" value=5>
+<label for="criteria_resp_3">5</label>
+<input id="criteria_resp_3_comment" type="text" name="criteria_resp_3_comment" value="No Comment">
+<br>
+{% endblock %}
+
+{% block criteria_resp_4 %}
+<label for="criteria_resp_4">Gestures: Uses physical gestures effectively</label>
+<input type="radio" id="criteria_resp_4_0" name="criteria_resp_4" value=0 hidden="true" checked>
+<input type="radio" id="criteria_resp_4_1" name="criteria_resp_4" value=1>
+<label for="criteria_resp_4">1</label>
+<input type="radio" id="criteria_resp_4_2" name="criteria_resp_4" value=2>
+<label for="criteria_resp_4">2</label>
+<input type="radio" id="criteria_resp_4_3" name="criteria_resp_4" value=3>
+<label for="criteria_resp_4">3</label>
+<input type="radio" id="criteria_resp_4_4" name="criteria_resp_4" value=4>
+<label for="criteria_resp_4">4</label>
+<input type="radio" id="criteria_resp_4_5" name="criteria_resp_4" value=5>
+<label for="criteria_resp_4">5</label>
+<input id="criteria_resp_4_comment" type="text" name="criteria_resp_4_comment" value="No Comment">
+<br>
+{% endblock %}
+
+{% block criteria_resp_5 %}
+<label for="criteria_resp_5">Audience Awareness: Demonstrates awareness of audience engagement</label>
+<input type="radio" id="criteria_resp_5_0" name="criteria_resp_5" value=0 hidden="true" checked>
+<input type="radio" id="criteria_resp_5_1" name="criteria_resp_5" value=1>
+<label for="criteria_resp_5">1</label>
+<input type="radio" id="criteria_resp_5_2" name="criteria_resp_5" value=2>
+<label for="criteria_resp_5">2</label>
+<input type="radio" id="criteria_resp_5_3" name="criteria_resp_5" value=3>
+<label for="criteria_resp_5">3</label>
+<input type="radio" id="criteria_resp_5_4" name="criteria_resp_5" value=4>
+<label for="criteria_resp_5">4</label>
+<input type="radio" id="criteria_resp_5_5" name="criteria_resp_5" value=5>
+<label for="criteria_resp_5">5</label>
+<input id="criteria_resp_5_comment" type="text" name="criteria_resp_5_comment" value="No Comment">
+<br>
+{% endblock %}
+
+{% block criteria_resp_6 %}
+<label for="criteria_resp_6">Comfort Level: Appears comfortable with the audience</label>
+<input type="radio" id="criteria_resp_6_0" name="criteria_resp_6" value=0 hidden="true" checked>
+<input type="radio" id="criteria_resp_6_1" name="criteria_resp_6" value=1>
+<label for="criteria_resp_6">1</label>
+<input type="radio" id="criteria_resp_6_2" name="criteria_resp_6" value=2>
+<label for="criteria_resp_6">2</label>
+<input type="radio" id="criteria_resp_6_3" name="criteria_resp_6" value=3>
+<label for="criteria_resp_6">3</label>
+<input type="radio" id="criteria_resp_6_4" name="criteria_resp_6" value=4>
+<label for="criteria_resp_6">4</label>
+<input type="radio" id="criteria_resp_6_5" name="criteria_resp_6" value=5>
+<label for="criteria_resp_6">5</label>
+<input id="criteria_resp_6_comment" type="text" name="criteria_resp_6_comment" value="No Comment">
+<br>
+{% endblock %}
+
+{% block criteria_resp_7 %}
+<label for="criteria_resp_7">Interest: Engages audience with interesting, well-constructed content</label>
+<input type="radio" id="criteria_resp_7_0" name="criteria_resp_7" value=0 hidden="true" checked>
+<input type="radio" id="criteria_resp_7_1" name="criteria_resp_7" value=1>
+<label for="criteria_resp_7">1</label>
+<input type="radio" id="criteria_resp_7_2" name="criteria_resp_7" value=2>
+<label for="criteria_resp_7">2</label>
+<input type="radio" id="criteria_resp_7_3" name="criteria_resp_7" value=3>
+<label for="criteria_resp_7">3</label>
+<input type="radio" id="criteria_resp_7_4" name="criteria_resp_7" value=4>
+<label for="criteria_resp_7">4</label>
+<input type="radio" id="criteria_resp_7_5" name="criteria_resp_7" value=5>
+<label for="criteria_resp_7">5</label>
+<input id="criteria_resp_7_comment" type="text" name="criteria_resp_7_comment" value="No Comment">
+<br>
+{% endblock %}
+
+{% block criteria_resp_8 %}
+<label for="criteria_resp_8">Well Supported: Speech content is well-supported and sources are available if requested</label>
+<input type="radio" id="criteria_resp_8_0" name="criteria_resp_8" value=0 hidden="true" checked>
+<input type="radio" id="criteria_resp_8_1" name="criteria_resp_8" value=1>
+<label for="criteria_resp_8">1</label>
+<input type="radio" id="criteria_resp_8_2" name="criteria_resp_8" value=2>
+<label for="criteria_resp_8">2</label>
+<input type="radio" id="criteria_resp_8_3" name="criteria_resp_8" value=3>
+<label for="criteria_resp_8">3</label>
+<input type="radio" id="criteria_resp_8_4" name="criteria_resp_8" value=4>
+<label for="criteria_resp_8">4</label>
+<input type="radio" id="criteria_resp_8_5" name="criteria_resp_8" value=5>
+<label for="criteria_resp_8">5</label>
+<input id="criteria_resp_8_comment" type="text" name="criteria_resp_8_comment" value="No Comment">
+<br>
+{% endblock %}
+
+{% block form_criteria %}
+{% endblock %}
