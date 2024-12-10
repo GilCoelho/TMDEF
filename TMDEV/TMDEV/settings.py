@@ -128,3 +128,16 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+# Settings for sending email
+if DEBUG:
+    # Check: https://www.geeksforgeeks.org/setup-sending-email-in-django-project/
+    # Currently using parms for a debug (https://gist.github.com/andreagrandi/7027319)
+    # Cmd: python3 -m smtpd -n -c DebuggingServer localhost:1025
+    EMAIL_HOST = 'localhost'
+    EMAIL_PORT = 1025
+    EMAIL_HOST_USER = ''
+    EMAIL_HOST_PASSWORD = ''
+    EMAIL_USE_TLS = False
+    DEFAULT_FROM_EMAIL = 'testing@example.com'

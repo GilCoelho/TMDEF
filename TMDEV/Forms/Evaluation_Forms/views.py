@@ -3,12 +3,14 @@ from django.views.decorators.csrf import csrf_protect, requires_csrf_token
 from django.shortcuts import render
 from django.template import loader
 from django.urls import reverse
+from django.core import serializers
 
 from Forms.Form_Selector.models import SpeechToEval
 
 from Forms.Evaluation_Forms.models import EvaluationDBTable
 from Forms.Evaluation_Forms.forms import FeedBackForm
 
+from Tools.Mailer.mailer import Mailer
 
 @csrf_protect
 @requires_csrf_token
@@ -50,11 +52,13 @@ def feedback(request):
             speech_to_eval = SpeechToEval.objects.get(id=form.cleaned_data["speech_id"])
 
             EvaluationDBTable(
-                speech_evaluated=speech_to_eval,
+                speech_evaluated = speech_to_eval,
 
-                first_answer=form.cleaned_data["first_answer"],
-                second_answer=form.cleaned_data["second_answer"],
-                third_answer=form.cleaned_data["third_answer"],
+                first_answer = form.cleaned_data["first_answer"],
+                second_answer = form.cleaned_data["second_answer"],
+                third_answer = form.cleaned_data["third_answer"],
+
+                evaluator_name = form.cleaned_data["evaluator_name"],
 
                 criteria_resp_1 = form.cleaned_data["criteria_resp_1"],
                 criteria_resp_1_comment = form.cleaned_data["criteria_resp_1_comment"],
@@ -93,8 +97,12 @@ def feedback(request):
                 criteria_resp_12_comment = form.cleaned_data["criteria_resp_12_comment"],
             ).save()
 
+            last_id = EvaluationDBTable.objects.last().id
+
             # redirect to a new URL:
-            return HttpResponseRedirect(reverse('evaluation:thanksForFeedBack'))
+            # TODO: need to find a way to do this ? better
+            url = reverse('evaluation:thanksForFeedBack')  + f"?evaluation_id={last_id}"
+            return HttpResponseRedirect(url)
 
     # if a GET (or any other method) we'll create a blank form
     else:
@@ -108,5 +116,23 @@ def feedback(request):
 def thanks_for_feedback(request):
     template = loader.get_template("thanks_for_feedback.html")
     context = {}
+
+    if request.method == "GET":
+        speech_id = request.GET.get("evaluation_id", 0)
+
+        if speech_id != 0:
+            speech_to_report = EvaluationDBTable.objects.get(id=speech_id)
+
+            # Send mail
+            # In DEBUG form, is needed to have a debug server running
+            # cmd: python3 -m smtpd -n -c DebuggingServer localhost:1025
+            subject = f"Evaluation of speech: {speech_to_report.speech_evaluated.speech_name}"
+
+            # TODO: need to parse and handle the data sereialized
+            message = f"{serializers.serialize('json', EvaluationDBTable.objects.filter(pk=speech_id))}"
+
+            email = speech_to_report.speech_evaluated.speaker_email
+
+            Mailer().send_email(subject, message, email)
 
     return HttpResponse(template.render(context, request))

@@ -5,9 +5,12 @@ EMPTY_COMMENT = "No Comment"
 
 class FeedBackForm(forms.Form):
     speech_id = forms.IntegerField(label="speech_id")
+
     first_answer = forms.CharField(label="first_answer", max_length=255, required=True, error_messages={"required": REQUIRED_ERROR_MESSAGE})
     second_answer = forms.CharField(label="second_answer", max_length=255, required=True, error_messages={"required": REQUIRED_ERROR_MESSAGE})
     third_answer = forms.CharField(label="third_answer", max_length=255, required=True, error_messages={"required": REQUIRED_ERROR_MESSAGE})
+
+    evaluator_name = forms.CharField(label="evaluator_name", max_length=255)
 
     criteria_resp_1 = forms.IntegerField(required=False, label="criteria_resp_1", initial=0)
     criteria_resp_1_comment = forms.CharField(required=False, label="criteria_resp_1_comment", max_length=255, initial=EMPTY_COMMENT)

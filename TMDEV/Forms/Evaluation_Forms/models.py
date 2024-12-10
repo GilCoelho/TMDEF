@@ -16,6 +16,8 @@ class EvaluationDBTable(models.Model):
     second_answer = models.CharField(max_length=255)
     third_answer = models.CharField(max_length=255)
 
+    evaluator_name = models.CharField(max_length=255)
+
     criteria_resp_1 = models.IntegerField(default=0)
     criteria_resp_1_comment = models.CharField(max_length=255, default=EMPTY_COMMENT)
 
