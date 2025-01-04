@@ -20,4 +20,4 @@ jobs:
         pip install -r requirements.txt
     - name: Run unittests from Django
       run: |
-        python3 TMDEV/manage.py test TMDEV/
+        python3 TMDEV/manage.py test --parallel auto TMDEV/Forms TMDEV/

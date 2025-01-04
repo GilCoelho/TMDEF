@@ -38,8 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "Forms.FormSelector",
-    "Forms.EvaluationForms",
-    "Tools.Mailer"
+    "Forms.EvaluationForms"
 ]
 
 MIDDLEWARE = [
