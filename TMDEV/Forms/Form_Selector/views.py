@@ -25,6 +25,7 @@ def form_selector(request, form_data=None):
 
     return HttpResponse(template.render(context, request))
 
+
 @csrf_protect
 @requires_csrf_token
 def add_speech(request):

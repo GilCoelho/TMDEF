@@ -3,6 +3,7 @@
         "asgi",
         "parms",
         "venv",
-        "vnev"
+        "vnev",
+        "pylint"
     ]
 }
