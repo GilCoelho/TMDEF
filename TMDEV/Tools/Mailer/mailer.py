@@ -1,13 +1,15 @@
 from django.core.mail import send_mail
 from django.conf import settings
 
+import json
+
 
 class Mailer:
     def __init__(self):
         pass
 
     def format_email_text(self):
-        return 1
+        return 2
 
     def send_email(self, subject, content, destination):
         """Send email
@@ -25,7 +27,11 @@ class Mailer:
         # Send email
         try:
             send_mail(
-                subject=subject, message=content, from_email=settings.EMAIL_HOST_USER, recipient_list=[destination]
+                subject=subject,
+                message=content,
+                from_email=settings.EMAIL_HOST_USER,
+                recipient_list=[destination]
             )
         except Exception as e:
             print(f"Crap: {e}")
+
