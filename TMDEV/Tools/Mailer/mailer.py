@@ -7,7 +7,7 @@ class Mailer:
         pass
 
     def format_email_text(self):
-        pass
+        return 1
 
     def send_email(self, subject, content, destination):
         """Send email
