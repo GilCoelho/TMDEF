@@ -2,7 +2,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 
 
-class Mailer():
+class Mailer:
     def send_email(self, subject, content, destination):
         """Send email
 
@@ -19,10 +19,7 @@ class Mailer():
         # Send email
         try:
             send_mail(
-                subject=subject,
-                message=content,
-                from_email=settings.EMAIL_HOST_USER,
-                recipient_list=[destination]
+                subject=subject, message=content, from_email=settings.EMAIL_HOST_USER, recipient_list=[destination]
             )
         except Exception as e:
             print(f"Crap: {e}")

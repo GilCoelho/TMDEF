@@ -135,9 +135,9 @@ if DEBUG:
     # Check: https://www.geeksforgeeks.org/setup-sending-email-in-django-project/
     # Currently using parms for a debug (https://gist.github.com/andreagrandi/7027319)
     # Cmd: python3 -m smtpd -n -c DebuggingServer localhost:1025
-    EMAIL_HOST = 'localhost'
+    EMAIL_HOST = "localhost"
     EMAIL_PORT = 1025
-    EMAIL_HOST_USER = ''
-    EMAIL_HOST_PASSWORD = ''
+    EMAIL_HOST_USER = ""
+    EMAIL_HOST_PASSWORD = ""
     EMAIL_USE_TLS = False
-    DEFAULT_FROM_EMAIL = 'testing@example.com'
+    DEFAULT_FROM_EMAIL = "testing@example.com"
