@@ -5,8 +5,8 @@ from django.template import loader
 
 from django.conf import settings
 
-from Forms.Form_Selector.models import SpeechToEval, FeedBackFormsList
-from Forms.Form_Selector.forms import AddSpeechForm
+from Forms.FormSelector.models import SpeechToEval, FeedBackFormsList
+from Forms.FormSelector.forms import AddSpeechForm
 
 
 # Create your views here.

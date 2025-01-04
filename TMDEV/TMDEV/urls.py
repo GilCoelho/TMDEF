@@ -19,7 +19,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", include(("Forms.Form_Selector.urls", "selector"), namespace="index")),
-    path("selector/", include(("Forms.Form_Selector.urls", "selector"), namespace="selector")),
-    path("evaluation/", include(("Forms.Evaluation_Forms.urls", "evaluation"), namespace="evaluation")),
+    path("", include(("Forms.FormSelector.urls", "selector"), namespace="index")),
+    path("selector/", include(("Forms.FormSelector.urls", "selector"), namespace="selector")),
+    path("evaluation/", include(("Forms.EvaluationForms.urls", "evaluation"), namespace="evaluation")),
 ]

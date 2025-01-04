@@ -3,6 +3,12 @@ from django.conf import settings
 
 
 class Mailer:
+    def __init__(self):
+        pass
+
+    def format_email_text(self):
+        pass
+
     def send_email(self, subject, content, destination):
         """Send email
 

@@ -1,6 +1,6 @@
 [
     {
-      "model": "Form_Selector.FeedBackFormsList",
+      "model": "FormSelector.FeedBackFormsList",
       "pk": 1,
       "fields": {
         "value": "generic",
@@ -8,7 +8,7 @@
       }
     },
     {
-      "model": "Form_Selector.FeedBackFormsList",
+      "model": "FormSelector.FeedBackFormsList",
       "pk": 2,
       "fields": {
         "value": "icebreaker",
