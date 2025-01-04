@@ -5,6 +5,8 @@ from django.template import loader
 from django.urls import reverse
 from django.core import serializers
 
+import json
+
 from Forms.FormSelector.models import SpeechToEval
 
 from Forms.EvaluationForms.models import EvaluationDBTable
@@ -116,11 +118,20 @@ def thanks_for_feedback(request):
             # cmd: python3 -m smtpd -n -c DebuggingServer localhost:1025
             subject = f"Evaluation of speech: {speech_to_report.speech_evaluated.speech_name}"
 
-            # FIXME: need to parse and handle the data serialized
-            message = f"{serializers.serialize('json', EvaluationDBTable.objects.filter(pk=speech_id))}"
+            # Create JSON obj with evaluation data
+            evaluation_data = json.loads(
+                serializers.serialize('json', EvaluationDBTable.objects.filter(pk=speech_id))[1:-1]
+            )
+            more_data_to_json = {
+                "speech_name": speech_to_report.speech_evaluated.speech_name,
+                "speaker": speech_to_report.speech_evaluated.speaker}
+            evaluation_data.update(more_data_to_json)
 
-            email = speech_to_report.speech_evaluated.speaker_email
+            destination_email = speech_to_report.speech_evaluated.speaker_email
 
-            Mailer().send_email(subject, message, email)
+            email_template = loader.get_template(f"email/generic_email.txt")
+            message = email_template.render(evaluation_data)
+
+            Mailer().send_email(subject, message, destination_email)
 
     return HttpResponse(template.render(context, request))

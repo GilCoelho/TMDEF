@@ -1,0 +1,16 @@
+Caro {{ speaker }}
+
+Referente ao teu discurso "{{ speech_name }}" tens a seguinte avaliação.
+
+No dia {{ fields.fill_date }} o avaliador {{ fields.evaluator_name }} escreveu o seguinte:
+
+{% block evaluation %}
+Tiveste bem em:
+{{ fields.first_answer }}
+
+Podes melhorar em:
+{{ fields.second_answer }}
+
+Como desafio para o futuro:
+{{ fields.third_answer }}
+{% endblock %}
