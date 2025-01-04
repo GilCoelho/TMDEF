@@ -1,8 +1,12 @@
 {
     "cSpell.words": [
+<<<<<<< HEAD
         "asgi",
         "parms",
         "venv",
-        "vnev"
+        "vnev",
+=======
+>>>>>>> 927f786f066d5367929d447a232d5748864a692e
+        "pylint"
     ]
 }

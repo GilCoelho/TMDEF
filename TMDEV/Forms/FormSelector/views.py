@@ -5,8 +5,8 @@ from django.template import loader
 
 from django.conf import settings
 
-from Forms.Form_Selector.models import SpeechToEval, FeedBackFormsList
-from Forms.Form_Selector.forms import AddSpeechForm
+from Forms.FormSelector.models import SpeechToEval, FeedBackFormsList
+from Forms.FormSelector.forms import AddSpeechForm
 
 
 # Create your views here.
@@ -24,6 +24,7 @@ def form_selector(request, form_data=None):
     }
 
     return HttpResponse(template.render(context, request))
+
 
 @csrf_protect
 @requires_csrf_token

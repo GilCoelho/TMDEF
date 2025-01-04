@@ -8,6 +8,7 @@ class SpeechToEval(models.Model):
     pathway_challenge = models.CharField(max_length=255)
     feedback_form = models.CharField(max_length=255)  # models.IntegerChoices()
 
+
 class FeedBackFormsList(models.Model):
     value = models.CharField(max_length=255)
     text = models.CharField(max_length=255)

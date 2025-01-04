@@ -2,7 +2,7 @@ from datetime import datetime
 
 from django.db import models
 
-from Forms.Form_Selector.models import SpeechToEval
+from Forms.FormSelector.models import SpeechToEval
 
 EMPTY_COMMENT = "No Comment"
 

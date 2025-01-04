@@ -10,8 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
-import os
-
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -39,8 +37,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "Forms.Form_Selector",
-    "Forms.Evaluation_Forms",
+    "Forms.FormSelector",
+    "Forms.EvaluationForms",
 ]
 
 MIDDLEWARE = [
@@ -59,8 +57,8 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
-            BASE_DIR / "Forms/Form_Selector/template",
-            BASE_DIR / "Forms/Evaluation_Forms/template",
+            BASE_DIR / "Forms/FormSelector/template",
+            BASE_DIR / "Forms/EvaluationForms/template",
         ],
         "APP_DIRS": True,
         "OPTIONS": {
@@ -135,9 +133,9 @@ if DEBUG:
     # Check: https://www.geeksforgeeks.org/setup-sending-email-in-django-project/
     # Currently using parms for a debug (https://gist.github.com/andreagrandi/7027319)
     # Cmd: python3 -m smtpd -n -c DebuggingServer localhost:1025
-    EMAIL_HOST = 'localhost'
+    EMAIL_HOST = "localhost"
     EMAIL_PORT = 1025
-    EMAIL_HOST_USER = ''
-    EMAIL_HOST_PASSWORD = ''
+    EMAIL_HOST_USER = ""
+    EMAIL_HOST_PASSWORD = ""
     EMAIL_USE_TLS = False
-    DEFAULT_FROM_EMAIL = 'testing@example.com'
+    DEFAULT_FROM_EMAIL = "testing@example.com"
