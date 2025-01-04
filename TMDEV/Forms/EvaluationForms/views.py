@@ -5,10 +5,10 @@ from django.template import loader
 from django.urls import reverse
 from django.core import serializers
 
-from Forms.Form_Selector.models import SpeechToEval
+from Forms.FormSelector.models import SpeechToEval
 
-from Forms.Evaluation_Forms.models import EvaluationDBTable
-from Forms.Evaluation_Forms.forms import FeedBackForm
+from Forms.EvaluationForms.models import EvaluationDBTable
+from Forms.EvaluationForms.forms import FeedBackForm
 
 from Tools.Mailer.mailer import Mailer
 
@@ -32,6 +32,7 @@ def evaluation_form(request):
         }
 
         return HttpResponse(template.render(context, request))
+    return HttpResponse()
 
 
 @csrf_protect
@@ -87,7 +88,7 @@ def feedback(request):
             last_id = EvaluationDBTable.objects.last().id
 
             # redirect to a new URL:
-            # TODO: need to find a way to do this ? better
+            # FIXME: need to find a way to do this ? better
             url = reverse("evaluation:thanksForFeedBack") + f"?evaluation_id={last_id}"
             return HttpResponseRedirect(url)
 
@@ -115,7 +116,7 @@ def thanks_for_feedback(request):
             # cmd: python3 -m smtpd -n -c DebuggingServer localhost:1025
             subject = f"Evaluation of speech: {speech_to_report.speech_evaluated.speech_name}"
 
-            # TODO: need to parse and handle the data sereialized
+            # FIXME: need to parse and handle the data sereialized
             message = f"{serializers.serialize('json', EvaluationDBTable.objects.filter(pk=speech_id))}"
 
             email = speech_to_report.speech_evaluated.speaker_email

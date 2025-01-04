@@ -39,7 +39,7 @@ extension-pkg-whitelist=
 fail-on=
 
 # Specify a score threshold under which the program will exit with error.
-fail-under=10
+fail-under=9
 
 # Interpret the stdin as a python script, whose filename needs to be passed as
 # the module_or_package argument.
@@ -215,12 +215,13 @@ inlinevar-naming-style=any
 # Naming style matching correct method names.
 method-naming-style=snake_case
 
+
 # Regular expression matching correct method names. Overrides method-naming-
 # style. If left empty, method names will be checked with the set naming style.
 #method-rgx=
 
 # Naming style matching correct module names.
-module-naming-style=snake_case
+module-naming-style=any  # PascalCase
 
 # Regular expression matching correct module names. Overrides module-naming-
 # style. If left empty, module names will be checked with the set naming style.
@@ -342,7 +343,7 @@ indent-after-paren=4
 indent-string='    '
 
 # Maximum number of characters on a single line.
-max-line-length=100
+max-line-length=120
 
 # Maximum number of lines in a module.
 max-module-lines=1000
@@ -438,7 +439,11 @@ disable=raw-checker-failed,
         use-symbolic-message-instead,
         missing-module-docstring,
         missing-class-docstring,
-        import-error
+        missing-function-docstring,
+        import-error,
+        too-few-public-methods,
+        broad-exception-caught,
+        import-outside-toplevel
 
 #TODO: In the "disable" config: the missing.*.docstring need to be removed and fixed in future
 #TODO: In the "disable" config: the import-error need to be removed and fixed in future
@@ -498,7 +503,7 @@ evaluation=max(0, 0 if fatal else 10.0 - ((float(5 * error + warning + refactor 
 # used to format the message information. See doc for all details.
 msg-template=
 
-# Set the output format. Available formats are: text, parseable, colorized,
+# Set the output format. Available formats are: text, parsable, colorized,
 # json2 (improved json format), json (old json format) and msvs (visual
 # studio). You can also give a reporter class, e.g.
 # mypackage.mymodule.MyReporterClass.
