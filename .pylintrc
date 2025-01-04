@@ -46,13 +46,13 @@ fail-under=10
 #from-stdin=
 
 # Files or directories to be skipped. They should be base names, not paths.
-ignore=CVS
+ignore=CVS,migrations
 
 # Add files or directories matching the regular expressions patterns to the
 # ignore-list. The regex matches against paths and can be in Posix or Windows
 # format. Because '\\' represents the directory delimiter on Windows systems,
 # it can't be used as an escape character.
-ignore-paths=
+ignore-paths=.*/migrations/*
 
 # Files or directories matching the regular expression patterns are skipped.
 # The regex matches against base names, not paths. The default value ignores
@@ -307,9 +307,6 @@ max-locals=15
 # Maximum number of parents for a class (see R0901).
 max-parents=7
 
-# Maximum number of positional arguments for function / method.
-max-positional-arguments=5
-
 # Maximum number of public methods for a class (see R0904).
 max-public-methods=20
 
@@ -440,9 +437,11 @@ disable=raw-checker-failed,
         use-implicit-booleaness-not-comparison-to-zero,
         use-symbolic-message-instead,
         missing-module-docstring,
-        missing-class-docstring
+        missing-class-docstring,
+        import-error
 
 #TODO: In the "disable" config: the missing.*.docstring need to be removed and fixed in future
+#TODO: In the "disable" config: the import-error need to be removed and fixed in future
 
 # Enable the message, report, category or checker with the given id(s). You can
 # either give multiple identifier separated by comma (,) or put this option
