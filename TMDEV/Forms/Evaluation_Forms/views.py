@@ -128,7 +128,7 @@ def thanks_for_feedback(request):
             # cmd: python3 -m smtpd -n -c DebuggingServer localhost:1025
             subject = f"Evaluation of speech: {speech_to_report.speech_evaluated.speech_name}"
 
-            # TODO: need to parse and handle the data sereialized
+            # TODO: need to parse and handle the data serialized
             message = f"{serializers.serialize('json', EvaluationDBTable.objects.filter(pk=speech_id))}"
 
             email = speech_to_report.speech_evaluated.speaker_email
